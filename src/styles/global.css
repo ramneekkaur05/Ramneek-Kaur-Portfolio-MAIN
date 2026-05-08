@@ -5,10 +5,33 @@
 .site-background {
     width: 100%;
     min-height: 100vh;
-    background-color: #e5e5f7;
-    background-image: radial-gradient(#444cf7 1.05px, #e5e5f7 1.05px);
-    background-size: 21px 21px;
-    opacity: 0.8;
+    --color: #e1e1e1;
+    background-color: #f3f3f3;
+    background-image: linear-gradient(
+            0deg,
+            transparent 24%,
+            var(--color) 25%,
+            var(--color) 26%,
+            transparent 27%,
+            transparent 74%,
+            var(--color) 75%,
+            var(--color) 76%,
+            transparent 77%,
+            transparent
+        ),
+        linear-gradient(
+            90deg,
+            transparent 24%,
+            var(--color) 25%,
+            var(--color) 26%,
+            transparent 27%,
+            transparent 74%,
+            var(--color) 75%,
+            var(--color) 76%,
+            transparent 77%,
+            transparent
+        );
+    background-size: 55px 55px;
 }
 
 .site-background .drawer-content {
