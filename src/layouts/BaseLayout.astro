@@ -24,7 +24,7 @@ const {
     <BaseHead title={title} description={description} image={image} , ogType={ogType} />
     {TRANSITION_API && <ViewTransitions />}
   </head>
-  <body class={showLoader ? "is-loading" : undefined}>
+  <body class={showLoader ? "is-loading" : undefined} data-show-loader={showLoader ? "true" : "false"}>
     {
       showLoader && (
         <div id="site-loader" class="site-loader" aria-hidden="true">
@@ -54,16 +54,30 @@ const {
       </div>
       {includeSidebar && <SideBar sideBarActiveItemID={sideBarActiveItemID} />}
     </div>
-    {
-      showLoader && (
-        <script is:inline>
-          const loader = document.getElementById('site-loader');
-          setTimeout(() => {
-            document.body.classList.remove('is-loading');
-            if (loader) loader.classList.add('is-hidden');
-          }, 1500);
-        </script>
-      )
-    }
+    <script is:inline>
+      (() => {
+        const hideLoader = () => {
+          document.body.classList.remove('is-loading');
+          document.querySelectorAll('.site-loader').forEach((loader) => {
+            loader.classList.add('is-hidden');
+          });
+        };
+
+        const syncLoader = () => {
+          const shouldShowLoader = document.body.dataset.showLoader === 'true';
+          if (!shouldShowLoader) {
+            hideLoader();
+            document.querySelectorAll('.site-loader').forEach((loader) => loader.remove());
+            return;
+          }
+
+          window.setTimeout(hideLoader, 1500);
+        };
+
+        syncLoader();
+        document.addEventListener('astro:before-swap', hideLoader);
+        document.addEventListener('astro:page-load', syncLoader);
+      })();
+    </script>
   </body>
 </html>
