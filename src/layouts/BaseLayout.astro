@@ -24,7 +24,19 @@ const {
     <BaseHead title={title} description={description} image={image} , ogType={ogType} />
     {TRANSITION_API && <ViewTransitions />}
   </head>
-  <body>
+  <body class="is-loading">
+    <div id="site-loader" class="site-loader" aria-hidden="true">
+      <div class="loader">
+        <span><span></span><span></span><span></span><span></span></span>
+        <div class="base">
+          <span></span>
+          <div class="face"></div>
+        </div>
+      </div>
+      <div class="longfazers">
+        <span></span><span></span><span></span><span></span>
+      </div>
+    </div>
     <div class="site-background drawer lg:drawer-open">
       <SplashCursor client:load />
       <input id="my-drawer" type="checkbox" class="drawer-toggle" />
@@ -39,5 +51,12 @@ const {
       </div>
       {includeSidebar && <SideBar sideBarActiveItemID={sideBarActiveItemID} />}
     </div>
+    <script is:inline>
+      const loader = document.getElementById('site-loader');
+      setTimeout(() => {
+        document.body.classList.remove('is-loading');
+        if (loader) loader.classList.add('is-hidden');
+      }, 4000);
+    </script>
   </body>
 </html>
