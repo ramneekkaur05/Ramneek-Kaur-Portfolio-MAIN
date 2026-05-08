@@ -1,0 +1,57 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+import { highlightTextParts } from "../lib/highlightText";
+
+const intro =
+  "Third-year CSE (AI/ML) student at Chandigarh University with an 8.8 CGPA, building practical AI systems across retrieval-augmented generation, conversational AI, and computer vision. Open to internships and collaborative builds.";
+---
+
+<BaseLayout sideBarActiveItemID="home">
+  <div class="pb-12 mt-5">
+    <div class="text-xl py-1">Hello</div>
+    <div class="text-5xl font-bold">I'm Ramneek Kaur</div>
+    <div class="text-3xl py-3 font-bold">Aspiring Data Scientist | Software Engineer / SDE | Product Engineer</div>
+    <div class="py-2">
+      <text class="text-lg">
+        {highlightTextParts(intro).map((part) =>
+          part.kind ? <span class={`focus-${part.kind}`}>{part.text}</span> : part.text
+        )}
+      </text>
+    </div>
+    <div class="mt-8">
+      <a class="btn" href="mailto:ramneekkaur.gn@gmail.com" target="_blank">Email</a>
+      <a href="https://linkedin.com/in/ramneekkaur05" target="_blank" class="btn btn-outline ml-5">
+        Connect on LinkedIn
+      </a>
+    </div>
+  </div>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-2">Featured projects {"</>"}</div>
+  </div>
+
+  <HorizontalCard
+    title="Audio RAG App"
+    img="/post_img.webp"
+    desc="Built a retrieval-augmented audio Q&A system with AssemblyAI, LangChain, FAISS, and Gemini, delivered through a Streamlit UI."
+    url="/projects"
+    badge="RAG"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Inner Compass Journaling App"
+    img="/post_img.webp"
+    desc="Designed a guided journaling platform with mood analytics, goal tracking, and structured reflection to drive growth."
+    url="/projects"
+    badge="PRODUCT"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Hand Gesture Volume Controller"
+    img="/post_img.webp"
+    desc="Computer vision prototype that maps hand gestures to system volume using OpenCV, MediaPipe, and Pycaw."
+    url="/projects"
+    badge="CV"
+  />
+</BaseLayout>

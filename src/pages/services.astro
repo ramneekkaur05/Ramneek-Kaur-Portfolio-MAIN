@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+---
+
+<BaseLayout title="Focus Areas" sideBarActiveItemID="services">
+  <div>
+    <div class="text-3xl w-full font-bold mb-5">Focus Areas</div>
+  </div>
+
+  <HorizontalCard
+    title="Machine Learning & NLP"
+    img="/post_img.webp"
+    desc="Applied ML and NLP for intelligent systems, from RAG pipelines to conversational AI and semantic search." 
+    badge="ML"
+    url="/cv"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Computer Vision"
+    img="/post_img.webp"
+    desc="Vision-based prototypes using OpenCV and MediaPipe, with real-time interaction and feedback loops." 
+    url="/projects"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Data Analysis"
+    img="/post_img.webp"
+    desc="Python, SQL, and analytics workflows to transform raw data into insights and decisions." 
+    url="/cv"
+    badge="DATA"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Product-Minded Delivery"
+    img="/post_img.webp"
+    desc="Bridging research, prototyping, and real-world impact with a clear focus on user value." 
+    url="/cv"
+  />
+</BaseLayout>

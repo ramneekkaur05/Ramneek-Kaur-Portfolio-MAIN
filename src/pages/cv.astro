@@ -1,0 +1,136 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+import { highlightTextParts } from "../lib/highlightText";
+
+const profile =
+  "Aspiring data scientist focused on applying ML, NLP, and computer vision to real-world problems. I build practical AI systems, validate ideas through rapid prototyping, and turn data into insights that guide product decisions.";
+
+const certifications = [
+  "AWS Academy Graduate - Generative AI Foundations (Apr 2026)",
+  "Retrieval Augmented Generation - DeepLearning.AI (Aug 2025)",
+  "Fundamentals of Deep Learning - NVIDIA (Jul 2025)",
+  "Introduction to Machine Learning - Duke University (Feb 2025)",
+  "British Airways Data Science Job Simulation - Forage (Jan 2025)",
+  "AI Foundations: Machine Learning - LinkedIn (Jul 2024)",
+  "Career Essentials in Data Analysis - Microsoft and LinkedIn (Jun 2024)",
+  "Introduction to Generative AI - Google (Aug 2023)",
+];
+
+const experiences = [
+  {
+    title: "Inner Compass Journaling App",
+    subtitle: "Jan 2026 | Product and full-stack build",
+    description:
+      "Designed a guided journaling platform with mood analytics, goal tracking, and structured reflection to boost consistency.",
+  },
+  {
+    title: "Audio RAG App",
+    subtitle: "Aug 2025 | ML project",
+    description:
+      "Built a retrieval-augmented audio Q&A system using AssemblyAI, LangChain, FAISS, and Gemini, delivered through Streamlit.",
+  },
+  {
+    title: "GeeksforGeeks Student Chapter - Chandigarh University",
+    subtitle: "Apr 2025 to Present | Member",
+    description:
+      "Active member contributing to peer learning and problem-solving initiatives.",
+  },
+  {
+    title: "Google Developer Student Clubs, Chandigarh University",
+    subtitle: "Mar 2025 to Present | Member",
+    description: "Collaborating on ML-focused community projects and workshops.",
+  },
+  {
+    title: "Hand Gesture Volume Controller",
+    subtitle: "Jan 2025 | Computer vision prototype",
+    description:
+      "Implemented real-time hand tracking with OpenCV and MediaPipe, mapping gestures to system volume using Pycaw.",
+  },
+];
+
+const skillGroups = [
+  ["Python", "C++", "JavaScript", "SQL", "React"],
+  ["Machine Learning", "Deep Learning", "NLP", "Computer Vision", "Data Analysis", "Statistics"],
+  ["Pandas", "NumPy", "Scikit-learn", "Jupyter", "Power BI"],
+  ["LangChain", "FAISS", "OpenCV", "MediaPipe", "Streamlit", "Git", "GitHub", "Google Cloud"],
+  ["Communication", "Problem solving", "Product thinking"],
+];
+---
+
+<BaseLayout title="Resume" sideBarActiveItemID="cv">
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Profile</div>
+  </div>
+
+  <div class="mb-10 text-justify">
+    {highlightTextParts(profile).map((part) =>
+      part.kind ? <span class={`focus-${part.kind}`}>{part.text}</span> : part.text
+    )}
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Education</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    <TimeLineElement
+      title="B.E. Computer Science Engineering (AI & ML Honors)"
+      subtitle="Aug 2023 to Aug 2027 at Chandigarh University, Mohali, India | CGPA: 8.8"
+    />
+    <TimeLineElement
+      title="Class XII, Non-Medical"
+      subtitle="2021 to 2023 at Ryan International School, Chandigarh | 91.4%"
+    />
+    <TimeLineElement
+      title="Class X, ICSE"
+      subtitle="2021 at St. Xavier's High School, Mohali | 96.4%"
+    />
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Experience</div>
+  </div>
+
+  <div class="time-line-container mb-10">
+    {experiences.map((experience) => <TimeLineElement {...experience} />)}
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Certifications</div>
+  </div>
+
+  <ul class="list-disc mx-6 mb-10 grid gap-2">
+    {certifications.map((certification) => (
+      <li>
+        {highlightTextParts(certification).map((part) =>
+          part.kind ? <span class={`focus-${part.kind}`}>{part.text}</span> : part.text
+        )}
+      </li>
+    ))}
+  </ul>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Skills</div>
+  </div>
+
+  <div class="mb-10 flex flex-wrap gap-3">
+    {skillGroups.flat().map((skill) => (
+      <span class="focus-chip">
+        {highlightTextParts(skill).map((part) =>
+          part.kind ? <span class={`focus-${part.kind}`}>{part.text}</span> : part.text
+        )}
+      </span>
+    ))}
+  </div>
+
+  <div class="mb-5 mt-10">
+    <div class="text-3xl w-full font-bold">Languages</div>
+  </div>
+
+  <ul class="list-disc mx-6">
+    <li>Punjabi - Native or bilingual proficiency</li>
+    <li>English - Full professional proficiency</li>
+    <li>Hindi - Professional working proficiency</li>
+  </ul>
+</BaseLayout>

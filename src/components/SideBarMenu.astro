@@ -1,0 +1,79 @@
+---
+const { sideBarActiveItemID } = Astro.props;
+const activeClass = "bg-base-300"; // For primary color replace with `active` class
+---
+
+<ul class="menu grow shrink menu-md overflow-y-auto">
+    <li><a class="btn btn-ghost py-3 text-base" id="home" href="/" data-astro-prefetch data-astro-transition="fade">Home</a></li>
+    <li><a class="btn btn-ghost py-3 text-base" id="projects" href="/projects" data-astro-prefetch data-astro-transition="fade">Projects</a></li>
+    <li><a class="btn btn-ghost py-3 text-base" id="services" href="/services" data-astro-prefetch data-astro-transition="fade">Focus Areas</a></li>
+    <li><a class="btn btn-ghost py-3 text-base" id="cv" href="/cv" data-astro-prefetch data-astro-transition="fade">CV</a></li>
+    <li>
+        <a
+            class="btn btn-ghost py-3 text-base"
+            href="https://wa.me/916239252032"
+            target="_blank"
+            referrerpolicy="no-referrer-when-downgrade">Contact</a
+        >
+    </li>
+    <li class="mt-4">
+        <div class="social-tiles px-4 pb-2 pt-3 flex self-center justify-center">
+            <div class="social-grid" aria-label="Social links">
+                <div class="up">
+                    <a
+                        class="social-card card1"
+                        href="https://linkedin.com/in/ramneekkaur05"
+                        target="_blank"
+                        aria-label="LinkedIn"
+                        title="LinkedIn"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" class="linkedin">
+                            <path d="M6.94 6.5a1.94 1.94 0 1 1-3.88 0 1.94 1.94 0 0 1 3.88 0ZM3.5 8.5H6.4V20H3.5V8.5Zm5.5 0h2.78v1.57h.04c.39-.74 1.36-1.52 2.8-1.52 2.99 0 3.54 1.97 3.54 4.53V20h-2.9v-6.06c0-1.44-.03-3.29-2.01-3.29-2.02 0-2.33 1.58-2.33 3.19V20H9V8.5Z" />
+                        </svg>
+                    </a>
+                    <a
+                        class="social-card card2"
+                        href="https://wa.me/916239252032"
+                        target="_blank"
+                        aria-label="WhatsApp"
+                        title="WhatsApp"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="30" height="30" class="whatsapp">
+                            <path d="M16.04 5C10.5 5 6 9.45 6 14.94c0 1.94.6 3.75 1.63 5.28L6 27l7-1.83c1.5.82 3.23 1.3 5.04 1.3 5.54 0 10.04-4.45 10.04-9.93C28.08 9.45 23.58 5 18.04 5h-2Zm0 2h2c4.41 0 8.04 3.6 8.04 7.94 0 4.35-3.63 7.94-8.04 7.94-1.7 0-3.32-.52-4.69-1.48l-.38-.26-3.74.98.98-3.58-.25-.38A7.75 7.75 0 0 1 8 14.94C8 10.6 11.63 7 16.04 7Zm-3.03 3.2c-.19 0-.38.06-.53.18-.3.23-.73.78-.73 1.64 0 .86.62 1.68.71 1.8.1.12 1.22 1.92 2.98 2.62 1.76.7 1.76.47 2.08.44.33-.03 1.06-.42 1.21-.83.15-.41.15-.76.11-.83-.04-.07-.15-.11-.31-.19-.16-.08-.95-.46-1.1-.51-.15-.06-.26-.08-.38.08-.11.16-.43.51-.52.62-.1.12-.2.13-.36.05-.16-.08-.68-.25-1.3-.8-.48-.43-.8-.96-.9-1.12-.09-.16-.01-.25.07-.33.08-.07.16-.2.25-.3.08-.1.1-.16.16-.26.06-.1.03-.2-.02-.28-.05-.08-.41-1.02-.56-1.4-.14-.34-.3-.36-.41-.36Z" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="down">
+                    <a
+                        class="social-card card3"
+                        href="https://github.com/ramneekkaur05"
+                        target="_blank"
+                        aria-label="GitHub"
+                        title="GitHub"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" class="github">
+                            <path d="M15,3C8.373,3,3,8.373,3,15c0,5.623,3.872,10.328,9.092,11.63C12.036,26.468,12,26.28,12,26.047v-2.051 c-0.487,0-1.303,0-1.508,0c-0.821,0-1.551-0.353-1.905-1.009c-0.393-0.729-0.461-1.844-1.435-2.526 c-0.289-0.227-0.069-0.486,0.264-0.451c0.615,0.174,1.125,0.596,1.605,1.222c0.478,0.627,0.703,0.769,1.596,0.769 c0.433,0,1.081-0.025,1.691-0.121c0.328-0.833,0.895-1.6,1.588-1.962c-3.996-0.411-5.903-2.399-5.903-5.098 c0-1.162,0.495-2.286,1.336-3.233C9.053,10.647,8.706,8.73,9.435,8c1.798,0,2.885,1.166,3.146,1.481C13.477,9.174,14.461,9,15.495,9 c1.036,0,2.024,0.174,2.922,0.483C18.675,9.17,19.763,8,21.565,8c0.732,0.731,0.381,2.656,0.102,3.594 c0.836,0.945,1.328,2.066,1.328,3.226c0,2.697-1.904,4.684-5.894,5.097C18.199,20.49,19,22.1,19,23.313v2.734 c0,0.104-0.023,0.179-0.035,0.268C23.641,24.676,27,20.236,27,15C27,8.373,21.627,3,15,3z"></path>
+                        </svg>
+                    </a>
+                    <a
+                        class="social-card card4"
+                        href="https://leetcode.com/u/Ramneek_Kaur_05/"
+                        target="_blank"
+                        aria-label="LeetCode"
+                        title="LeetCode"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" class="leetcode">
+                            <path d="M16.72 3.04a1.5 1.5 0 0 1 2.12 0l2.12 2.12a1.5 1.5 0 0 1 0 2.12l-7.42 7.42a2.5 2.5 0 0 1-1.77.73H6.5A2.5 2.5 0 0 1 4 12.92V7.64a2.5 2.5 0 0 1 .73-1.77l4.42-4.42a1.5 1.5 0 1 1 2.12 2.12L7.06 7.79a.5.5 0 0 0-.15.35v4.78c0 .28.22.5.5.5h4.78a.5.5 0 0 0 .35-.15l7.42-7.42-1.06-1.06-5.84 5.84a1 1 0 0 1-1.42-1.42l5.08-5.08Z" />
+                            <path d="M3 18.5A2.5 2.5 0 0 0 5.5 21h13a1 1 0 1 0 0-2h-13a.5.5 0 0 1-.5-.5v-2a1 1 0 1 0-2 0v2Z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+
+<script define:vars={{ sideBarActiveItemID: sideBarActiveItemID, activeClass: activeClass }}>
+const activeItemElem = document.getElementById(sideBarActiveItemID);
+activeItemElem && activeItemElem.classList.add(activeClass);
+</script>

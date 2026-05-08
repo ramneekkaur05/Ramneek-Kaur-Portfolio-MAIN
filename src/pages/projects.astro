@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Project3DCard from "../components/Project3DCard";
+
+const projects = [
+  {
+    title: "Inner Compass Journaling App",
+    img: "/post_img.webp",
+    desc: "Full-stack journaling platform with guided prompts, mood analytics, and goal tracking to help users build consistent reflection habits.",
+    url: "/projects",
+    badge: "PRODUCT",
+  },
+  {
+    title: "Audio RAG App",
+    img: "/post_img.webp",
+    desc: "Retrieval-augmented audio Q&A pipeline: AssemblyAI transcription, LangChain orchestration, FAISS semantic search, and Gemini for answers, wrapped in Streamlit.",
+    url: "/projects",
+    badge: "RAG",
+  },
+  {
+    title: "Conversational AI Chatbot",
+    img: "/post_img.webp",
+    desc: "Context-aware chatbot leveraging session memory to preserve conversation flow and deliver more consistent responses.",
+    url: "/projects",
+    badge: "NLP",
+  },
+  {
+    title: "Hand Gesture Volume Controller",
+    img: "/post_img.webp",
+    desc: "Real-time hand tracking with OpenCV and MediaPipe, mapping gestures to system volume via Pycaw for a touchless control demo.",
+    url: "/projects",
+    badge: "CV",
+  },
+];
+---
+
+<BaseLayout title = "Projects" sideBarActiveItemID="projects">
+  <div>
+    <div class="text-3xl w-full font-bold mb-5">Projects</div>
+  </div>
+
+  <div class="grid gap-6 md:grid-cols-2">
+    {projects.map((project) => <Project3DCard client:load {...project} />)}
+  </div>
+</BaseLayout>
