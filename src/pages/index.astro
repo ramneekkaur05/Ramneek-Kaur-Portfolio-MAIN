@@ -19,10 +19,17 @@ const intro =
         )}
       </text>
     </div>
-    <div class="mt-8">
+    <div class="mt-8 flex flex-wrap gap-4">
       <a class="btn" href="mailto:ramneekkaur.gn@gmail.com" target="_blank">Email</a>
-      <a href="https://linkedin.com/in/ramneekkaur05" target="_blank" class="btn btn-outline ml-5">
+      <a href="https://linkedin.com/in/ramneekkaur05" target="_blank" class="btn btn-outline">
         Connect on LinkedIn
+      </a>
+      <a
+        href="/resume/Ramneek_Kaur_Resume.pdf"
+        class="btn btn-outline"
+        download
+      >
+        Download Resume
       </a>
     </div>
   </div>
@@ -33,25 +40,33 @@ const intro =
 
   <HorizontalCard
     title="Audio RAG App"
-    img="/post_img.webp"
+    img="/projects/RAG-over-audio-image.png"
     desc="Built a retrieval-augmented audio Q&A system with AssemblyAI, LangChain, FAISS, and Gemini, delivered through a Streamlit UI."
-    url="/projects"
+    url="https://github.com/ramneekkaur05/RAG_over_Audio"
     badge="RAG"
   />
   <div class="divider my-0"></div>
   <HorizontalCard
     title="Inner Compass Journaling App"
-    img="/post_img.webp"
+    img="/projects/inner-compass-image.png"
     desc="Designed a guided journaling platform with mood analytics, goal tracking, and structured reflection to drive growth."
-    url="/projects"
+    url="https://inner-compass-journal.vercel.app/"
     badge="PRODUCT"
   />
   <div class="divider my-0"></div>
   <HorizontalCard
     title="Hand Gesture Volume Controller"
-    img="/post_img.webp"
+    img="/projects/hand-gesture-image.png"
     desc="Computer vision prototype that maps hand gestures to system volume using OpenCV, MediaPipe, and Pycaw."
-    url="/projects"
+    url="https://github.com/ramneekkaur05/HandGesture_VolumeController"
     badge="CV"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Conversational AI Chatbot"
+    img="/projects/qa-chatbot-image.png"
+    desc="Context-aware chatbot that preserves conversation flow using session memory with the Gemini API."
+    url="https://github.com/ramneekkaur05/Conversational_Chatbot"
+    badge="NLP"
   />
 </BaseLayout>

@@ -63,6 +63,16 @@ const skillGroups = [
     <div class="text-3xl w-full font-bold">Profile</div>
   </div>
 
+  <div class="mb-8">
+    <a
+      href="/resume/Ramneek_Kaur_Resume.pdf"
+      class="btn btn-outline"
+      download
+    >
+      Download Resume
+    </a>
+  </div>
+
   <div class="mb-10 text-justify">
     {highlightTextParts(profile).map((part) =>
       part.kind ? <span class={`focus-${part.kind}`}>{part.text}</span> : part.text
