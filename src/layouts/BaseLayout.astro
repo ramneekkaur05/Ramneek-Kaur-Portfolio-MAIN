@@ -12,30 +12,35 @@ const {
   title = SITE_TITLE,
   description = SITE_DESCRIPTION,
   includeSidebar = true,
+  showLoader = false,
   sideBarActiveItemID,
   ogType,
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="lofi">
   <head>
     <BaseHead title={title} description={description} image={image} , ogType={ogType} />
     {TRANSITION_API && <ViewTransitions />}
   </head>
-  <body class="is-loading">
-    <div id="site-loader" class="site-loader" aria-hidden="true">
-      <div class="loader">
-        <span><span></span><span></span><span></span><span></span></span>
-        <div class="base">
-          <span></span>
-          <div class="face"></div>
+  <body class={showLoader ? "is-loading" : undefined}>
+    {
+      showLoader && (
+        <div id="site-loader" class="site-loader" aria-hidden="true">
+          <div class="loader">
+            <span><span></span><span></span><span></span><span></span></span>
+            <div class="base">
+              <span></span>
+              <div class="face"></div>
+            </div>
+          </div>
+          <div class="longfazers">
+            <span></span><span></span><span></span><span></span>
+          </div>
         </div>
-      </div>
-      <div class="longfazers">
-        <span></span><span></span><span></span><span></span>
-      </div>
-    </div>
+      )
+    }
     <div class="site-background drawer lg:drawer-open">
       <input id="my-drawer" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content">
@@ -49,12 +54,16 @@ const {
       </div>
       {includeSidebar && <SideBar sideBarActiveItemID={sideBarActiveItemID} />}
     </div>
-    <script is:inline>
-      const loader = document.getElementById('site-loader');
-      setTimeout(() => {
-        document.body.classList.remove('is-loading');
-        if (loader) loader.classList.add('is-hidden');
-      }, 4000);
-    </script>
+    {
+      showLoader && (
+        <script is:inline>
+          const loader = document.getElementById('site-loader');
+          setTimeout(() => {
+            document.body.classList.remove('is-loading');
+            if (loader) loader.classList.add('is-hidden');
+          }, 1500);
+        </script>
+      )
+    }
   </body>
 </html>

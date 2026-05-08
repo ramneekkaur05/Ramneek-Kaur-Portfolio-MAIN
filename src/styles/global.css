@@ -5,8 +5,8 @@
 .site-background {
     width: 100%;
     min-height: 100vh;
-    --color: #2f2f2f;
-    background-color: #0f0f0f;
+    --color: #e1e1e1;
+    background-color: #f3f3f3;
     background-image: linear-gradient(
             0deg,
             transparent 24%,
@@ -33,7 +33,7 @@
         );
     background-size: 55px 55px;
     opacity: 1;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.2s ease;
 }
 
 body.is-loading {
@@ -56,7 +56,7 @@ body.is-loading .site-background {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
 /* From Uiverse.io by anand_4957 */
